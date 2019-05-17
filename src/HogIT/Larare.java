@@ -18,16 +18,24 @@ import oru.inf.InfException;
 public class Larare extends javax.swing.JFrame {
  
     private InfDB idb;
-    private ElevhemsPokalen pokalen;
+   private ElevhemsPokalen pokalen;
     /**
     * Creates new form Larare
      */
     public Larare() {
         initComponents();
-     
+        try {
+            idb = new InfDB("c:\\db\\hogdb.fdb");
+        } catch (InfException ex) {
+            Logger.getLogger(Larare.class.getName()).log(Level.SEVERE, null, ex);
+       
+        }
+    
+    
+        
+        
     
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +47,9 @@ public class Larare extends javax.swing.JFrame {
 
         startaAndraLosenord = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        resultat = new javax.swing.JLabel();
+        klick = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultat = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,41 +67,51 @@ public class Larare extends javax.swing.JFrame {
             }
         });
 
-        resultat.setText("Visa ställning för elevhems pokalen!");
-        resultat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                resultatMouseEntered(evt);
+        klick.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        klick.setText("Visa ställning för elevhems pokalen!");
+        klick.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                klickMouseClicked(evt);
             }
         });
+
+        resultat.setBackground(new java.awt.Color(204, 255, 204));
+        resultat.setColumns(20);
+        resultat.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
+        resultat.setRows(5);
+        jScrollPane1.setViewportView(resultat);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(resultat, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                        .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(klick)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(resultat, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 243, Short.MAX_VALUE)
+                .addComponent(klick, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void startaAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startaAndraLosenordActionPerformed
      
         try {
@@ -112,13 +132,38 @@ public class Larare extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void resultatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultatMouseEntered
-    void ElevhemsPokalen.
-    }//GEN-LAST:event_resultatMouseEntered
+    private void klickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_klickMouseClicked
+        
+        try {
+            ArrayList <String> hem = idb.fetchColumn("SELECT ELEVHEMSNAMN from ELEVHEM");
+           
+            ArrayList <String> poäng = idb.fetchColumn("SELECT HUSPOANG from ELEVHEM");
+            
+             String svar ="";
+            
+            for ( int i = 0; i<hem.size();i++)
+          { 
+            svar +=   hem.get(i)+ " " + poäng.get(i) + "\n";
+          
+            resultat.setText(svar);
+            klick.setVisible(false);
+         
+          }
+            
+        } catch (InfException ex) {
+            Logger.getLogger(StallningElevhemsPokalen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
+            
+    }//GEN-LAST:event_klickMouseClicked
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel resultat;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel klick;
+    private javax.swing.JTextArea resultat;
     private javax.swing.JButton startaAndraLosenord;
     // End of variables declaration//GEN-END:variables
+
 }

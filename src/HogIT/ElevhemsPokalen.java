@@ -36,6 +36,7 @@ public void visaStallning()
           { 
             svar +=   hem.get(i)+ " " + poäng.get(i) + "\n";
            
+         
           }
             
         } catch (InfException ex) {
