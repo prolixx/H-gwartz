@@ -5,8 +5,10 @@
  */
 package HogIT;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
@@ -15,11 +17,15 @@ import oru.inf.InfException;
  */
 public class Larare extends javax.swing.JFrame {
  
+    private InfDB idb;
+    private ElevhemsPokalen pokalen;
     /**
-     * Creates new form Larare
+    * Creates new form Larare
      */
     public Larare() {
         initComponents();
+     
+    
     }
 
     /**
@@ -31,14 +37,30 @@ public class Larare extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        startaPoang = new javax.swing.JLabel();
+        startaAndraLosenord = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        resultat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        startaPoang.setText("Huspoäng");
-        startaPoang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                startaPoangMouseClicked(evt);
+        startaAndraLosenord.setText("Ändra lösenord");
+        startaAndraLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startaAndraLosenordActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ändra huspoäng");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        resultat.setText("Visa ställning för elevhems pokalen!");
+        resultat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                resultatMouseEntered(evt);
             }
         });
 
@@ -46,33 +68,57 @@ public class Larare extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(startaPoang, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 289, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(resultat, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                        .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(startaPoang, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 263, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(resultat, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void startaPoangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startaPoangMouseClicked
-
+    private void startaAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startaAndraLosenordActionPerformed
+     
         try {
-            new Poang().setVisible(true);
-            
-            
-            
-            // TODO add your handling code here:
+            new AndraLosenord().setVisible(true);
         } catch (InfException ex) {
             Logger.getLogger(Larare.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_startaPoangMouseClicked
+    }//GEN-LAST:event_startaAndraLosenordActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+
+        try {
+            new Poang().setVisible(true);
+        } catch (InfException ex) {
+            Logger.getLogger(Larare.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void resultatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultatMouseEntered
+    void ElevhemsPokalen.
+    }//GEN-LAST:event_resultatMouseEntered
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel startaPoang;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel resultat;
+    private javax.swing.JButton startaAndraLosenord;
     // End of variables declaration//GEN-END:variables
 }

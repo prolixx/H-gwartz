@@ -16,7 +16,7 @@ import oru.inf.InfException;
  */
 public class Poang extends javax.swing.JFrame {
 
-    private final InfDB idb;
+    public InfDB idb;
 
     /**
      * Creates new form Huvudfonster
@@ -25,10 +25,8 @@ public class Poang extends javax.swing.JFrame {
      */
     public Poang() throws InfException {
         initComponents();
-
-        idb = new InfDB("c:\\db\\hogdb(1).fdb");
+      idb = new InfDB("c:\\db\\hogdb.fdb");
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -22,7 +22,7 @@ public class Start {
 public static void main(String[] args) throws InfException
 {
    try {
-       idb = new InfDB("c:\\db\\hogdb(1).fdb");
+       idb = new InfDB("c:\\db\\hogdb.fdb");
    }
    catch(InfException ettUndantag) {
    JOptionPane.showMessageDialog(null,"något gick fel!");
