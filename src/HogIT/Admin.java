@@ -5,19 +5,37 @@
  */
 package HogIT;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oru.inf.InfDB;
+import oru.inf.InfException;
+
 /**
  *
  * @author Gabriel
  */
 public class Admin extends javax.swing.JFrame {
-
+ 
+    private InfDB idb;
+   private ElevhemsPokalen pokalen;
     /**
-     * Creates new form NewJFrame
+    * Creates new form Larare
      */
     public Admin() {
         initComponents();
+        try {
+            idb = new InfDB("c:\\db\\hogdb.fdb");
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+       
+        }
+    
+    
+        
+        
+    
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,18 +45,82 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Poang = new javax.swing.JLabel();
+        startaAndraLosenord = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        klick = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultat = new javax.swing.JTextArea();
+        visaBetyg = new javax.swing.JToggleButton();
+        larareKurser = new javax.swing.JToggleButton();
+        SokPrefekt = new javax.swing.JToggleButton();
+        listaElever = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        geAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Poang.setBackground(new java.awt.Color(51, 153, 255));
-        Poang.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        Poang.setForeground(new java.awt.Color(153, 0, 255));
-        Poang.setText("Huspoäng");
-        Poang.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Poang.addMouseListener(new java.awt.event.MouseAdapter() {
+        startaAndraLosenord.setText("Ändra lösenord");
+        startaAndraLosenord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startaAndraLosenordActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ändra huspoäng");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        klick.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        klick.setText("Visa ställning för elevhems pokalen!");
+        klick.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PoangMouseClicked(evt);
+                klickMouseClicked(evt);
+            }
+        });
+
+        resultat.setBackground(new java.awt.Color(204, 255, 204));
+        resultat.setColumns(20);
+        resultat.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
+        resultat.setRows(5);
+        jScrollPane1.setViewportView(resultat);
+
+        visaBetyg.setText("Visa elev betyg");
+        visaBetyg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visaBetygActionPerformed(evt);
+            }
+        });
+
+        larareKurser.setText("Lärares kurser");
+
+        SokPrefekt.setText("Sök Prefekt");
+        SokPrefekt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SokPrefektActionPerformed(evt);
+            }
+        });
+
+        listaElever.setText("Lista elver");
+        listaElever.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaEleverActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Logga ut");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        geAdmin.setText("Ge admin");
+        geAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                geAdminActionPerformed(evt);
             }
         });
 
@@ -46,29 +128,149 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Poang, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(324, Short.MAX_VALUE))
+            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SokPrefekt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listaElever, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(larareKurser, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(klick))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(visaBetyg, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(geAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(Poang, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(klick, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(SokPrefekt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listaElever, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(larareKurser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(visaBetyg, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(geAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PoangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PoangMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PoangMouseClicked
+    
+    private void startaAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startaAndraLosenordActionPerformed
+     
+        try {
+            new AndraLosenord().setVisible(true);
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_startaAndraLosenordActionPerformed
 
- 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+
+        try {
+            new Poang().setVisible(true);
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void klickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_klickMouseClicked
+        
+        try {
+            ArrayList <String> hem = idb.fetchColumn("SELECT ELEVHEMSNAMN from ELEVHEM");
+           
+            ArrayList <String> poäng = idb.fetchColumn("SELECT HUSPOANG from ELEVHEM");
+            
+             String svar ="";
+            
+            for ( int i = 0; i<hem.size();i++)
+          { 
+            svar +=   hem.get(i)+ " " + poäng.get(i) + "\n";
+          
+            resultat.setText(svar);
+            klick.setVisible(false);
+         
+          }
+            
+        } catch (InfException ex) {
+            Logger.getLogger(StallningElevhemsPokalen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
+            
+    }//GEN-LAST:event_klickMouseClicked
+
+    private void SokPrefektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPrefektActionPerformed
+        try {
+            new SokPrefekt().setVisible(true);
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_SokPrefektActionPerformed
+
+    private void listaEleverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaEleverActionPerformed
+        try {
+            new ListaEleverpåElevhem().setVisible(true);
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_listaEleverActionPerformed
+
+    private void visaBetygActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaBetygActionPerformed
+        try {
+            new VisaKursBetyg().setVisible(true);
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_visaBetygActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void geAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geAdminActionPerformed
+        try {
+            new GeAdminStatus().setVisible(true);
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_geAdminActionPerformed
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Poang;
+    private javax.swing.JToggleButton SokPrefekt;
+    private javax.swing.JButton geAdmin;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel klick;
+    private javax.swing.JToggleButton larareKurser;
+    private javax.swing.JButton listaElever;
+    private javax.swing.JTextArea resultat;
+    private javax.swing.JButton startaAndraLosenord;
+    private javax.swing.JToggleButton visaBetyg;
     // End of variables declaration//GEN-END:variables
+
 }

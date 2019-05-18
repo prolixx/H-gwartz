@@ -109,7 +109,7 @@ public class GeAdminStatus extends javax.swing.JFrame {
         try {
             String id = ID.getText();
             String setToAdmin = "'T'";
-            
+            String namn = idb.fetchSingle("Select Fornamn from Larare where larar_id=" + id);
               ArrayList <String> b = idb.fetchColumn("SELECT LARAR_ID from LARARE");
               {
               boolean ok = false;
@@ -132,10 +132,12 @@ public class GeAdminStatus extends javax.swing.JFrame {
             else 
                     
                     try {
+                      if(JOptionPane.showConfirmDialog(null, "admin vill till delas:", namn,
+                            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
                         idb.update("UPDATE LARARE SET ADMINISTRATOR=" + setToAdmin + "where LARAR_ID=" + id);
                         
                         JOptionPane.showMessageDialog(null, " Behörighet nu updaterad");
-                        
+                      }
                     } catch (InfException ex) {
                         Logger.getLogger(GeAdminStatus.class.getName()).log(Level.SEVERE, null, ex);
                     }
