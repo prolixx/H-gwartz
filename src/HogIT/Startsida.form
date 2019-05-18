@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" min="-2" pref="216" max="-2" attributes="0"/>
+                  <Component id="vidare" min="-2" pref="216" max="-2" attributes="0"/>
                   <Component id="loggInKnapp" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -48,7 +48,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="99" max="-2" attributes="0"/>
+              <Component id="vidare" min="-2" pref="99" max="-2" attributes="0"/>
               <EmptySpace pref="143" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -95,12 +95,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwordActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="vidare">
       <Properties>
         <Property name="text" type="java.lang.String" value="Forts&#xe4;tt utan loggin!"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vidareActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

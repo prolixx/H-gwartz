@@ -45,6 +45,7 @@ public class GeAdminStatus extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         ID = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        tillbaka = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +57,13 @@ public class GeAdminStatus extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        tillbaka.setText("tillbaka");
+        tillbaka.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tillbakaMouseClicked(evt);
             }
         });
 
@@ -74,6 +82,9 @@ public class GeAdminStatus extends javax.swing.JFrame {
                         .addGap(93, 93, 93)
                         .addComponent(jButton1)))
                 .addContainerGap(145, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +97,8 @@ public class GeAdminStatus extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -133,6 +145,10 @@ public class GeAdminStatus extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tillbakaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tillbakaMouseClicked
+dispose();
+    }//GEN-LAST:event_tillbakaMouseClicked
+
  
 
 
@@ -141,5 +157,6 @@ public class GeAdminStatus extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel tillbaka;
     // End of variables declaration//GEN-END:variables
 }

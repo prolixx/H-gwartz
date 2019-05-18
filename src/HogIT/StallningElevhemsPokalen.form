@@ -35,6 +35,7 @@
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="tillbaka" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
@@ -50,7 +51,8 @@
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <Component id="tillbaka" min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,5 +86,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="tillbaka">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tillbaka"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tillbakaMouseClicked"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

@@ -42,6 +42,7 @@ public class AndraLosenord extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         changePass = new javax.swing.JToggleButton();
+        tillbaka = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +70,13 @@ public class AndraLosenord extends javax.swing.JFrame {
         changePass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changePassActionPerformed(evt);
+            }
+        });
+
+        tillbaka.setText("Tillbaka");
+        tillbaka.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tillbakaMouseClicked(evt);
             }
         });
 
@@ -100,6 +108,9 @@ public class AndraLosenord extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(165, 165, 165))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +131,8 @@ public class AndraLosenord extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(changePass)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -170,6 +182,10 @@ public class AndraLosenord extends javax.swing.JFrame {
        
     }//GEN-LAST:event_changePassActionPerformed
 
+    private void tillbakaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tillbakaMouseClicked
+dispose();
+    }//GEN-LAST:event_tillbakaMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton changePass;
     private javax.swing.JLabel jLabel1;
@@ -178,6 +194,7 @@ public class AndraLosenord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField newPassword;
     private javax.swing.JPasswordField password;
+    private javax.swing.JLabel tillbaka;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }

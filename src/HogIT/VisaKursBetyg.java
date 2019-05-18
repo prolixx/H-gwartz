@@ -44,6 +44,7 @@ public class VisaKursBetyg extends javax.swing.JFrame {
         Elev = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         Resultat = new javax.swing.JTextField();
+        tillbaka = new javax.swing.JLabel();
 
         jLabel3.setText("jLabel3");
 
@@ -59,6 +60,13 @@ public class VisaKursBetyg extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        tillbaka.setText("Tillbaka");
+        tillbaka.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tillbakaMouseClicked(evt);
             }
         });
 
@@ -83,6 +91,9 @@ public class VisaKursBetyg extends javax.swing.JFrame {
                             .addComponent(Elev, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                             .addComponent(Kurs))))
                 .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +112,8 @@ public class VisaKursBetyg extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(Resultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(tillbaka, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,6 +147,11 @@ public class VisaKursBetyg extends javax.swing.JFrame {
                  
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tillbakaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tillbakaMouseClicked
+dispose(); 
+
+    }//GEN-LAST:event_tillbakaMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Elev;
     private javax.swing.JTextField Kurs;
@@ -144,5 +161,6 @@ public class VisaKursBetyg extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel tillbaka;
     // End of variables declaration//GEN-END:variables
 }

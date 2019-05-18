@@ -41,7 +41,7 @@ public class Startsida extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         loggInKnapp = new javax.swing.JToggleButton();
         password = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        vidare = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,10 +68,10 @@ public class Startsida extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Fortsätt utan loggin!");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        vidare.setText("Fortsätt utan loggin!");
+        vidare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                vidareActionPerformed(evt);
             }
         });
 
@@ -82,7 +82,7 @@ public class Startsida extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vidare, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loggInKnapp)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +98,7 @@ public class Startsida extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(vidare, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -158,17 +158,17 @@ public class Startsida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void vidareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vidareActionPerformed
+        new Elev().setVisible(true);
+    }//GEN-LAST:event_vidareActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JToggleButton loggInKnapp;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField user;
+    private javax.swing.JButton vidare;
     // End of variables declaration//GEN-END:variables
 }

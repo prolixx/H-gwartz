@@ -17,7 +17,7 @@ import oru.inf.InfException;
 public class Poang extends javax.swing.JFrame {
 
     public InfDB idb;
-
+    
     /**
      * Creates new form Huvudfonster
      *
@@ -26,6 +26,7 @@ public class Poang extends javax.swing.JFrame {
     public Poang() throws InfException {
         initComponents();
       idb = new InfDB("c:\\db\\hogdb.fdb");
+     
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,6 +43,7 @@ public class Poang extends javax.swing.JFrame {
         hem = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,18 +60,26 @@ public class Poang extends javax.swing.JFrame {
 
         jLabel3.setText("ge poäng eller dra av:");
 
+        jLabel4.setText("<-Tillbaka");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(genomför)
@@ -94,7 +104,9 @@ public class Poang extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(genomför)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -134,9 +146,13 @@ public class Poang extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
-
+        }  
     }//GEN-LAST:event_genomförActionPerformed
-    }
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
+       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Antal;
@@ -145,5 +161,6 @@ public class Poang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
