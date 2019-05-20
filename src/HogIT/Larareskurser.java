@@ -184,7 +184,7 @@ public class Larareskurser extends javax.swing.JFrame {
             String id = idb.fetchSingle("select larar_id from larare where fornamn=" + "'" + namn + "'" + "and efternamn=" + "'" + eNamn + "'");
             
             ArrayList<String> datumen = idb.fetchColumn("SELECT  KURSNAMN\n"
-                    + "FROM KURS where KURSLARARE="+ "'"+ id +"'" + "and   KURSSTART   >=" + "'" + fran +"'" + "and Kursslut <="+"'"+ till + "'");
+                    + "FROM KURS where KURSLARARE="+ "'" + id+ "'" + "and   KURSSTART   >=" + "'" + fran +"'" + "and Kursslut <="+"'"+ till + "'");
             
             String svar= "";
             
