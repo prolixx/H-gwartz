@@ -43,11 +43,11 @@ public class Larareskurser extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         resultat = new javax.swing.JTextArea();
         sok = new javax.swing.JButton();
-        franDatum = new com.toedter.calendar.JDateChooser();
-        tillDatum = new com.toedter.calendar.JDateChooser();
         fDatum = new javax.swing.JLabel();
         tDatum = new javax.swing.JLabel();
         tillbaka = new javax.swing.JLabel();
+        franDatum = new javax.swing.JTextField();
+        tillDatum = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +85,12 @@ public class Larareskurser extends javax.swing.JFrame {
             }
         });
 
+        franDatum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                franDatumActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,37 +104,33 @@ public class Larareskurser extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jlable9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(efternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jlable8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fornamn)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(fDatum)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(franDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(38, 38, 38)
-                                        .addComponent(tDatum)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(franDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jlable9)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(efternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(8, 8, 8)
+                                            .addComponent(jlable8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(fornamn))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(38, 38, 38)
+                                            .addComponent(tDatum)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(sok)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addComponent(tillDatum, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))))
-                                .addGap(191, 191, 191)))))
+                                                .addComponent(tillDatum)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -144,27 +146,24 @@ public class Larareskurser extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlable9)
                     .addComponent(efternamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fDatum)
                     .addComponent(franDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tillDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tillDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(sok)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(22, 22, 22)
+                        .addComponent(sok)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tillbaka, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
 
@@ -177,26 +176,27 @@ public class Larareskurser extends javax.swing.JFrame {
             // skapa variabler
             String namn = fornamn.getText();
             String eNamn = efternamn.getText();
-            String fran = franDatum.getDateFormatString();
-            String till = tillDatum.getDateFormatString();
+            String fran = franDatum.getText();
+            String till = tillDatum.getText();
             // hitta id efter fornamn och efternamn för att förenkla parameter och querys.
             
+            
             String id = idb.fetchSingle("select larar_id from larare where fornamn=" + "'" + namn + "'" + "and efternamn=" + "'" + eNamn + "'");
+                    
+            ArrayList<String> datumen = idb.fetchColumn("SELECT  KURSNAMN from KURS where KURSLARARE=" + "'" + id + "'" + "and   KURSSTART   >=" + "'" + fran + "'" + "and Kursslut <=" + "'" + till + "'");
+
+            String svar = "";
+                
             
-            ArrayList<String> datumen = idb.fetchColumn("SELECT  KURSNAMN\n"
-                    + "FROM KURS where KURSLARARE="+ "'" + id+ "'" + "and   KURSSTART   >=" + "'" + fran +"'" + "and Kursslut <="+"'"+ till + "'");
-            
-            String svar= "";
-            
-          
             for (String s : datumen) {
-                  svar += s + "\t";
+                svar += s + "\t";
             
-            resultat.setText(svar);}
-            
+                resultat.setText(svar);
+            }
+
         } catch (InfException ex) {
             Logger.getLogger(Larareskurser.class.getName()).log(Level.SEVERE, null, ex);
-            
+  
         }
         }
     }//GEN-LAST:event_sokActionPerformed
@@ -209,6 +209,10 @@ public class Larareskurser extends javax.swing.JFrame {
     private void fornamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fornamnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fornamnActionPerformed
+
+    private void franDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_franDatumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_franDatumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,7 +257,7 @@ public class Larareskurser extends javax.swing.JFrame {
     private javax.swing.JTextField efternamn;
     private javax.swing.JLabel fDatum;
     private javax.swing.JTextField fornamn;
-    private com.toedter.calendar.JDateChooser franDatum;
+    private javax.swing.JTextField franDatum;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlable8;
@@ -261,7 +265,7 @@ public class Larareskurser extends javax.swing.JFrame {
     private javax.swing.JTextArea resultat;
     private javax.swing.JButton sok;
     private javax.swing.JLabel tDatum;
-    private com.toedter.calendar.JDateChooser tillDatum;
+    private javax.swing.JTextField tillDatum;
     private javax.swing.JLabel tillbaka;
     // End of variables declaration//GEN-END:variables
 }

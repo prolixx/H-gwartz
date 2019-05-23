@@ -30,16 +30,15 @@ public class AndraInfoElev extends javax.swing.JFrame {
         
     }
     
-        public String getID() throws InfException{
-       
-            String namn = elevFornamn.getText();
-            String efternamn = elevEfternamn.getText();
-            String id = idb.fetchSingle("SELECT ELEV_ID FROM ELEV WHERE FORNAMN="+ "'"+namn+ "'"+"AND EFTERNAMN =" + "'" + efternamn + "'");
-            
-         return id;
-     
-        
-        }
+        public String getID() throws InfException {
+
+        String namn = elevFornamn.getText();
+        String efternamn = elevEfternamn.getText();
+        String id = idb.fetchSingle("SELECT ELEV_ID FROM ELEV WHERE FORNAMN=" + "'" + namn + "'" + "AND EFTERNAMN =" + "'" + efternamn + "'");
+
+        return id;
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,21 +54,17 @@ public class AndraInfoElev extends javax.swing.JFrame {
         andraSovsal = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         andraKnapp1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        genereratID = new javax.swing.JLabel();
-        generera = new javax.swing.JButton();
         andraKnapp2 = new javax.swing.JButton();
         andraKnapp3 = new javax.swing.JButton();
-        andraKnapp4 = new javax.swing.JButton();
         elevFornamn = new javax.swing.JTextField();
         elevEfternamn = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,28 +72,12 @@ public class AndraInfoElev extends javax.swing.JFrame {
 
         jLabel2.setText("Nytt efternamn:");
 
-        jLabel3.setText("Elev ID:");
-
         jLabel4.setText("Byt sovsal:");
 
         andraKnapp1.setText("Ändra");
         andraKnapp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 andraKnapp1ActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Tillbaka");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
-
-        generera.setText("Generera:");
-        generera.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genereraActionPerformed(evt);
             }
         });
 
@@ -116,13 +95,6 @@ public class AndraInfoElev extends javax.swing.JFrame {
             }
         });
 
-        andraKnapp4.setText("Ändra");
-        andraKnapp4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andraKnapp4ActionPerformed(evt);
-            }
-        });
-
         elevEfternamn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 elevEfternamnActionPerformed(evt);
@@ -137,6 +109,14 @@ public class AndraInfoElev extends javax.swing.JFrame {
 
         jLabel9.setText("Fyll informationen du vill ändra.");
 
+        jLabel3.setText("<- Tillbaka");
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,40 +124,17 @@ public class AndraInfoElev extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(generera, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(genereratID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(andraKnapp4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(andraEfternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(andraSovsal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(andraKnapp3))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(elevFornamn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(elevFornamn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(11, 11, 11)
-                                        .addComponent(jLabel8)))))
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel8)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(elevEfternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -192,7 +149,21 @@ public class AndraInfoElev extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(andraKnapp1)
-                            .addComponent(andraKnapp2))))
+                            .addComponent(andraKnapp2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(andraEfternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(andraSovsal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addComponent(andraKnapp3))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(127, 127, 127))
         );
         layout.setVerticalGroup(
@@ -223,16 +194,8 @@ public class AndraInfoElev extends javax.swing.JFrame {
                     .addComponent(andraSovsal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(andraKnapp3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(generera)
-                        .addComponent(jLabel3))
-                    .addComponent(andraKnapp4)
-                    .addComponent(genereratID, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -240,37 +203,22 @@ public class AndraInfoElev extends javax.swing.JFrame {
 
     private void andraKnapp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKnapp1ActionPerformed
         String namn = andraFornamn.getText();
-        
-        String sovSal = andraSovsal.getText();
-        
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_andraKnapp1ActionPerformed
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-       dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void genereraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genereraActionPerformed
-    
         try {
-            String nextID = idb.getAutoIncrement("Elev","Elev_ID");
-            genereratID.setText(nextID);
+            idb.update("UPDATE elev SET FORNAMN=" + "'" + namn + "'" + "WHERE ELEV_ID=" + "'" + getID() + "'");
+
         } catch (InfException ex) {
             Logger.getLogger(AndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
         }
+     
         
-    }//GEN-LAST:event_genereraActionPerformed
+    }//GEN-LAST:event_andraKnapp1ActionPerformed
 
     private void andraKnapp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKnapp2ActionPerformed
 
         String nyttEfternamn = andraEfternamn.getText();
         try {
-            idb.update("UPDATE elev SET EFTERNAMN="+"'"+nyttEfternamn+"'"+ "WHERE ELEV_ID="+"'"+getID()+"'");
+            idb.update("UPDATE elev SET EFTERNAMN=" + "'" + nyttEfternamn + "'" + "WHERE ELEV_ID=" + "'" + getID() + "'");
         } catch (InfException ex) {
             Logger.getLogger(AndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -278,16 +226,24 @@ public class AndraInfoElev extends javax.swing.JFrame {
     }//GEN-LAST:event_andraKnapp2ActionPerformed
 
     private void andraKnapp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKnapp3ActionPerformed
-        // TODO add your handling code here:
+        // ändra sovsal
+          String nySovsal = andraSovsal.getText();
+        try {
+            idb.update("UPDATE elev SET SOVSAL="+"'"+nySovsal+"'"+ "WHERE ELEV_ID="+"'"+getID()+"'");
+        } catch (InfException ex) {
+            Logger.getLogger(AndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_andraKnapp3ActionPerformed
-
-    private void andraKnapp4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKnapp4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_andraKnapp4ActionPerformed
 
     private void elevEfternamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevEfternamnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_elevEfternamnActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+dispose();
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -337,17 +293,13 @@ public class AndraInfoElev extends javax.swing.JFrame {
     private javax.swing.JButton andraKnapp1;
     private javax.swing.JButton andraKnapp2;
     private javax.swing.JButton andraKnapp3;
-    private javax.swing.JButton andraKnapp4;
     private javax.swing.JTextField andraSovsal;
     private javax.swing.JTextField elevEfternamn;
     private javax.swing.JTextField elevFornamn;
-    private javax.swing.JButton generera;
-    private javax.swing.JLabel genereratID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

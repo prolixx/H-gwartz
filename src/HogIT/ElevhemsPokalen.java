@@ -18,12 +18,12 @@ import oru.inf.InfException;
  */
 public class ElevhemsPokalen {
     private InfDB idb;
-     
+   
 public ElevhemsPokalen() throws InfException
 {
 idb = new InfDB("c:\\db\\hogdb.fdb");}
 
-public void visaStallning()
+public void visaStallning(String input)
 {
         try {
             ArrayList <String> hem = idb.fetchColumn("SELECT ELEVHEMSNAMN from ELEVHEM");
@@ -36,7 +36,8 @@ public void visaStallning()
           { 
             svar +=   hem.get(i)+ " " + poäng.get(i) + "\n";
            
-         
+            
+           
           }
             
         } catch (InfException ex) {

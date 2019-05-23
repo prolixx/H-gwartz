@@ -19,7 +19,7 @@ import oru.inf.InfException;
  */
 public class GeAdminStatus extends javax.swing.JFrame {
     
-    private final InfDB idb;
+    public InfDB idb;
     
   
 
@@ -29,7 +29,7 @@ public class GeAdminStatus extends javax.swing.JFrame {
     public GeAdminStatus() throws InfException {
         initComponents();
         
-        idb = new InfDB("c:\\db\\hogdb.fdb");
+        this.idb = new InfDB("c:\\db\\hogdb.fdb");
     }
 
     /**
@@ -110,6 +110,7 @@ public class GeAdminStatus extends javax.swing.JFrame {
             String id = ID.getText();
             String setToAdmin = "'T'";
             String namn = idb.fetchSingle("Select Fornamn from Larare where larar_id=" + id);
+            String efternamn = idb.fetchSingle("Select efternamn from larare where larar_id=" + id);
               ArrayList <String> b = idb.fetchColumn("SELECT LARAR_ID from LARARE");
               {
               boolean ok = false;
@@ -132,7 +133,7 @@ public class GeAdminStatus extends javax.swing.JFrame {
             else 
                     
                     try {
-                      if(JOptionPane.showConfirmDialog(null, "admin vill till delas:", namn,
+                      if(JOptionPane.showConfirmDialog(null,"Ge admin till: " + namn + " " + efternamn, "Admin" ,
                             JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
                         idb.update("UPDATE LARARE SET ADMINISTRATOR=" + setToAdmin + "where LARAR_ID=" + id);
                         

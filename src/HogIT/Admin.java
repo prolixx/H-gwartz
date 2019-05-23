@@ -27,15 +27,10 @@ public class Admin extends javax.swing.JFrame {
         try {
             idb = new InfDB("c:\\db\\hogdb.fdb");
         } catch (InfException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-       
-        }
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex); }
+     }
     
-    
-        
-        
-    
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +42,6 @@ public class Admin extends javax.swing.JFrame {
 
         startaAndraLosenord = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        klick = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultat = new javax.swing.JTextArea();
         visaBetyg = new javax.swing.JToggleButton();
@@ -73,18 +67,16 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        klick.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        klick.setText("Visa ställning för elevhems pokalen!");
-        klick.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                klickMouseClicked(evt);
-            }
-        });
-
         resultat.setBackground(new java.awt.Color(204, 255, 204));
         resultat.setColumns(20);
-        resultat.setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 12)); // NOI18N
+        resultat.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         resultat.setRows(5);
+        resultat.setText("Håll musen över!!\n för Ställning i \nElevhemsPokalen!");
+        resultat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                resultatMouseEntered(evt);
+            }
+        });
         jScrollPane1.setViewportView(resultat);
 
         visaBetyg.setText("Visa elev betyg");
@@ -135,10 +127,8 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(listaElever, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(larareKurser, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(klick))
-                .addGap(56, 56, 56)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
@@ -147,12 +137,6 @@ public class Admin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(klick, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -168,7 +152,10 @@ public class Admin extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(geAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(geAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -196,32 +183,6 @@ public class Admin extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void klickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_klickMouseClicked
-        
-        try {
-            ArrayList <String> hem = idb.fetchColumn("SELECT ELEVHEMSNAMN from ELEVHEM");
-           
-            ArrayList <String> poäng = idb.fetchColumn("SELECT HUSPOANG from ELEVHEM");
-            
-             String svar ="";
-            
-            for ( int i = 0; i<hem.size();i++)
-          { 
-            svar +=   hem.get(i)+ " " + poäng.get(i) + "\n";
-          
-            resultat.setText(svar);
-            klick.setVisible(false);
-         
-          }
-            
-        } catch (InfException ex) {
-            Logger.getLogger(StallningElevhemsPokalen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-
-            
-    }//GEN-LAST:event_klickMouseClicked
 
     private void SokPrefektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPrefektActionPerformed
         try {
@@ -258,6 +219,13 @@ dispose();
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_geAdminActionPerformed
+
+    private void resultatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultatMouseEntered
+        pokalen.visaStallning();
+        
+        resultat.setText();
+       
+    }//GEN-LAST:event_resultatMouseEntered
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton SokPrefekt;
@@ -265,7 +233,6 @@ dispose();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel klick;
     private javax.swing.JToggleButton larareKurser;
     private javax.swing.JButton listaElever;
     private javax.swing.JTextArea resultat;

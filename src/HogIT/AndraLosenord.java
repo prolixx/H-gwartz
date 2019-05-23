@@ -43,24 +43,14 @@ public class AndraLosenord extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         changePass = new javax.swing.JToggleButton();
         tillbaka = new javax.swing.JLabel();
+        newPassword2 = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("lärar id:");
 
         jLabel2.setText("lösenord:");
-
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("nytt lösenord:");
 
@@ -73,12 +63,21 @@ public class AndraLosenord extends javax.swing.JFrame {
             }
         });
 
+        tillbaka.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gabriel\\Documents\\Namnlös.png")); // NOI18N
         tillbaka.setText("Tillbaka");
         tillbaka.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tillbakaMouseClicked(evt);
             }
         });
+
+        newPassword2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newPassword2ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("nytt lösenord");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,13 +91,13 @@ public class AndraLosenord extends javax.swing.JFrame {
                             .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(changePass)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(newPassword2)
+                                    .addComponent(newPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))))
                         .addGap(100, 100, 100))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,9 +107,11 @@ public class AndraLosenord extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(165, 165, 165))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addComponent(changePass)
+                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,62 +130,59 @@ public class AndraLosenord extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(changePass)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(tillbaka, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(changePass))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(tillbaka)))
+                .addGap(102, 102, 102))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
-
     private void changePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePassActionPerformed
-       if(Validering.textFaltHarVarde(user) && (Validering.textFaltHarVarde(password))
-               && (Validering.textFaltHarVarde(newPassword))){
-        try {
-            String larare = user.getText();
-            String pass = password.getText();
-            String newPass = newPassword.getText();
-            
-            String fraga = idb.fetchSingle("SELECT LARAR_ID from LARARE where LOSENORD=" + "'" + pass + "'");
-            String fraga2 = idb.fetchSingle("SELECT LOSENORD from LARARE where LOSENORD=" + "'" + pass + "'");
-             
-           if (user.getText().equals(fraga) && password.getText().equals(fraga2))
-              
-             {
-             idb.update("update larare set losenord=" + "'"+ newPass + "'" + "where larar_ID =" + "'"+ larare +"'");
-             JOptionPane.showMessageDialog(null, "Lösenord är nu ändrat!");
-             }
-           
-            else {
-                  JOptionPane.showMessageDialog(null, "Fyll i ID och lösenord korrekt!");
+        if (Validering.textFaltHarVarde(user) && (Validering.textFaltHarVarde(password))
+                && (Validering.textFaltHarVarde(newPassword))) {
+            try {
+                String larare = user.getText();
+                String pass = password.getText();
+                String newPass = newPassword.getText();
+                
+                String fraga = idb.fetchSingle("SELECT LARAR_ID from LARARE where LOSENORD=" + "'" + pass + "'");
+                String fraga2 = idb.fetchSingle("SELECT LOSENORD from LARARE where LOSENORD=" + "'" + pass + "'");
+                
+                if (user.getText().equals(fraga) && password.getText().equals(fraga2)
+                        && (newPassword.getText().equals(newPassword2.getText()))) {
+                    idb.update("update larare set losenord=" + "'" + newPass + "'" + "where larar_ID =" + "'" + larare + "'");
+                    JOptionPane.showMessageDialog(null, "Lösenord är nu ändrat!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Fyll i ID och lösenord korrekt!");
                     
-                    }   
+                }                
+                
+            } catch (InfException ex) {
+                Logger.getLogger(Startsida.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-
-
-        } catch (InfException ex) {
-            Logger.getLogger(Startsida.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }        
         
-    } 
-       
-       
-       
-       
+
     }//GEN-LAST:event_changePassActionPerformed
 
     private void tillbakaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tillbakaMouseClicked
 dispose();
     }//GEN-LAST:event_tillbakaMouseClicked
+
+    private void newPassword2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPassword2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newPassword2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton changePass;
@@ -192,7 +190,9 @@ dispose();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField newPassword;
+    private javax.swing.JPasswordField newPassword2;
     private javax.swing.JPasswordField password;
     private javax.swing.JLabel tillbaka;
     private javax.swing.JTextField user;

@@ -149,6 +149,7 @@ public class Startsida extends javax.swing.JFrame {
 
         } catch (InfException ex) {
             Logger.getLogger(Startsida.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
     }              // TODO add your handling code here:

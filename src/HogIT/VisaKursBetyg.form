@@ -42,20 +42,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="efternamn" max="32767" attributes="0"/>
                           <Component id="Elev" pref="94" max="32767" attributes="0"/>
                           <Component id="Kurs" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace pref="88" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="tillbaka" min="-2" pref="78" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,18 +69,22 @@
                   <Component id="jLabel2" min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="Kurs" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="Elev" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="efternamn" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Resultat" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="tillbaka" pref="30" max="32767" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,14 +97,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="KURS ID"/>
+        <Property name="text" type="java.lang.String" value="KURS NAMN"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Kurs">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ELEV ID"/>
+        <Property name="text" type="java.lang.String" value="ELEV NAMN"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="Elev">
@@ -115,13 +119,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Resultat">
     </Component>
-    <Component class="javax.swing.JLabel" name="tillbaka">
+    <Component class="javax.swing.JTextField" name="efternamn">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tillbaka"/>
+        <Property name="text" type="java.lang.String" value="Elev Efternamn"/>
       </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tillbakaMouseClicked"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
