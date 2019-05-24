@@ -11,6 +11,7 @@ package HogIT;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -18,13 +19,13 @@ import oru.inf.InfException;
  *
  * @author Admin
  */
-public class TaBortElev extends javax.swing.JFrame {
+public class TaBortElevNy extends javax.swing.JFrame {
  
          private final InfDB idb;
     /**
      * Creates new form TaBortElev
      */
-    public TaBortElev() throws InfException {
+    public TaBortElevNy() throws InfException {
         initComponents();
         
         idb = new InfDB("c:\\db\\hogdb.fdb");
@@ -43,10 +44,8 @@ public class TaBortElev extends javax.swing.JFrame {
         efternamn = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        id = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         fornamn = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +53,7 @@ public class TaBortElev extends javax.swing.JFrame {
 
         jLabel2.setText("Efternamn");
 
-        jLabel3.setText("ID");
+        jLabel3.setText("Förnamn");
 
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,14 +61,6 @@ public class TaBortElev extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        fornamn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fornamnActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Förnamn");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,22 +71,18 @@ public class TaBortElev extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(106, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(fornamn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(fornamn)
-                                    .addComponent(efternamn, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addComponent(efternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(92, 92, 92))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -107,18 +94,14 @@ public class TaBortElev extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fornamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(efternamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fornamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(25, 25, 25))
@@ -130,26 +113,47 @@ public class TaBortElev extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
         
-                 String namn  = fornamn.getText();
+         
                  String enamn = efternamn.getText();
                  
-                 String idf = id.getText();
+                 String fnamn = fornamn.getText();
                  
-                 String ide;
-                 try {
-                     ide = idb.fetchSingle("SELECT ELEV_ID FROM ELEV where efternamn=" + "'" + enamn + "'" + "and fornamn="+"'"+namn+"'");
-                       if (idf == null ? ide == null : idf.equals(ide)){}
-                       
-                     idb.update("update elev\n"
-                             + "set fornamn=null,efternamn=null,sovsal=null\n"
-                             + "where elev_id ="+ide);
-                       
-                       
               
-
+                 
+                 boolean ok = true;
+                 
+                 
+                
+                 try {
+                    String id = idb.fetchSingle("SELECT ELEV_ID FROM ELEV where fornamn=" + "'" + fnamn + "'" + "and efternamn=" + "'" + enamn + "'");
+                     if(id == null){ JOptionPane.showMessageDialog(null," Eleven finns inte");}
+                     
+                     else{
+                      String a = idb.fetchSingle("Select ELEV_ID from HAR_BETYG_I where ELEV_ID="+"'"+ id+"'");
+                       if(!(null ==a)) ok = false;{
+              idb.delete("delete from HAR_BETYG_I WHERE ELEV_ID="+"'"+id+"'"); ok = true;}
                       
+                       
+                       if( ok = true){
+                         String b = idb.fetchSingle("Select ELEV_ID from REGISTRERAD_PA where ELEV_ID="+"'"+ id+"'");
+                       if(!(null ==b))ok = false;{ 
+                            
+                           
+                           
+      idb.delete("delete from REGISTRERAD_PA WHERE ELEV_ID="+"'"+id+"'"); ok =true;} 
+                     
+                     if(ok = true){ 
+                       
+                       String c = idb.fetchSingle("Select PREFEKT from ELEVHEM where PREFEKT="+"'"+ id+"'"); 
+                       if(!(null ==c)){ JOptionPane.showMessageDialog(null," Eleven är prefket välj ny prefekt innan borttag");}
+                       
+                      
+                      
+                    if( c == null){
+                     idb.delete("DELETE from ELEV where ELEV_ID=" +"'"+ id+"'");{JOptionPane.showMessageDialog(null,"  Eleven är nu borttagen");}}}}}
+                     
                  } catch (InfException ex) {
-                     Logger.getLogger(TaBortElev.class.getName()).log(Level.SEVERE, null, ex);
+                     Logger.getLogger(TaBortElevNy.class.getName()).log(Level.SEVERE, null, ex);
                  }
                  
                
@@ -164,10 +168,6 @@ public class TaBortElev extends javax.swing.JFrame {
      
      
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void fornamnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fornamnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fornamnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,14 +186,16 @@ public class TaBortElev extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TaBortElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaBortElevNy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TaBortElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaBortElevNy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TaBortElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaBortElevNy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TaBortElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaBortElevNy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -201,9 +203,9 @@ public class TaBortElev extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new TaBortElev().setVisible(true);
+                    new TaBortElevNy().setVisible(true);
                 } catch (InfException ex) {
-                    Logger.getLogger(TaBortElev.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TaBortElevNy.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -212,11 +214,9 @@ public class TaBortElev extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField efternamn;
     private javax.swing.JTextField fornamn;
-    private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

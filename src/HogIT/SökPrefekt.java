@@ -14,14 +14,14 @@ import oru.inf.InfException;
  *
  * @author Admin
  */
-public class SokPrefekt extends javax.swing.JFrame {
+public class SökPrefekt extends javax.swing.JFrame {
     private final InfDB idb;
 
     /**
      * Creates new form SokPrefekt
      * @throws oru.inf.InfException
      */
-    public SokPrefekt() throws InfException {
+    public SökPrefekt() throws InfException {
         initComponents();
       idb = new InfDB("c:\\db\\hogdb.fdb");}
        
@@ -136,7 +136,7 @@ public class SokPrefekt extends javax.swing.JFrame {
             Resultat.setText(fornamn);
             
         } catch (InfException ex) {
-            Logger.getLogger(SokPrefekt.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SökPrefekt.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

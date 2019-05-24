@@ -130,20 +130,20 @@ public class GeAdminStatus extends javax.swing.JFrame {
             if(a.startsWith("T")){ JOptionPane.showMessageDialog(null, " Läraren är redan administratör");
             }
             
-            else 
-                    
-                    try {
-                      if(JOptionPane.showConfirmDialog(null,"Ge admin till: " + namn + " " + efternamn, "Admin" ,
-                            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            else
+
+                try {
+                    if (JOptionPane.showConfirmDialog(null, "Ge admin till: " + namn + " " + efternamn + " " + id, "Admin",
+                            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         idb.update("UPDATE LARARE SET ADMINISTRATOR=" + setToAdmin + "where LARAR_ID=" + id);
-                        
+
                         JOptionPane.showMessageDialog(null, " Behörighet nu updaterad");
-                      }
-                    } catch (InfException ex) {
-                        Logger.getLogger(GeAdminStatus.class.getName()).log(Level.SEVERE, null, ex);
                     }
-        } catch (HeadlessException | NumberFormatException | InfException ex) 
-      {JOptionPane.showMessageDialog(null, " Något gick fel");
+                } catch (InfException ex) {
+                    Logger.getLogger(GeAdminStatus.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        } catch (HeadlessException | NumberFormatException | InfException ex) {
+            JOptionPane.showMessageDialog(null, " Något gick fel");
             Logger.getLogger(GeAdminStatus.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

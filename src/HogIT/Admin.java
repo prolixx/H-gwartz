@@ -1,10 +1,13 @@
+package HogIT;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HogIT;
 
+
+import HogIT.attPusha.Poang;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -167,7 +170,7 @@ public class Admin extends javax.swing.JFrame {
     private void startaAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startaAndraLosenordActionPerformed
      
         try {
-            new AndraLosenord().setVisible(true);
+            new ÄndraLosenord().setVisible(true);
         } catch (InfException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -186,7 +189,7 @@ public class Admin extends javax.swing.JFrame {
 
     private void SokPrefektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPrefektActionPerformed
         try {
-            new SokPrefekt().setVisible(true);
+            new SökPrefekt().setVisible(true);
         } catch (InfException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -221,10 +224,10 @@ dispose();
     }//GEN-LAST:event_geAdminActionPerformed
 
     private void resultatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultatMouseEntered
-        pokalen.visaStallning();
-        
-        resultat.setText();
-       
+//        pokalen.visaStallning();
+//        
+//        resultat.setText();
+//       
     }//GEN-LAST:event_resultatMouseEntered
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

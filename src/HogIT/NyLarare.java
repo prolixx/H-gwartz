@@ -110,18 +110,24 @@ public class NyLarare extends javax.swing.JFrame {
     }//GEN-LAST:event_fornamnActionPerformed
 
     private void skapaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skapaKnappActionPerformed
-        try {
+        if((Validering.textFaltHarVarde(fornamn)) && (Validering.kollatecken(fornamn))
+            &&  (Validering.textFaltHarVarde(efternamn)) && (Validering.kollatecken(efternamn))){
+        
+                try {
             String namn = fornamn.getText();
             String eNamn = efternamn.getText();
             String pass = losenord.getText();
             String nextID = idb.getAutoIncrement("larare", "larar_id");
             idb.insert("insert into larare values" + "(" + "'" + nextID + "'" + "," + "'" + namn + "'" + "," + "'" + eNamn + "'" + "," + "'" + pass + "'" + "," + "'F')");
             JOptionPane.showMessageDialog(null, "Ny larare tilllaggd");
-        } catch (InfException ex) {
+      
+                    
+                    
+                } catch (InfException ex) {
             Logger.getLogger(NyLarare.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
+        }
         
         
         

@@ -15,13 +15,13 @@ import oru.inf.InfException;
  *
  * @author Admin
  */
-public class AndraLosenord extends javax.swing.JFrame {
+public class ÄndraLosenord extends javax.swing.JFrame {
 
     public InfDB idb;
     /**
      * Creates new form ÄndraLösenord
      */
-    public AndraLosenord() throws InfException {
+    public ÄndraLosenord() throws InfException {
         initComponents();
         idb = new InfDB("c:\\db\\hogdb.fdb");
     }

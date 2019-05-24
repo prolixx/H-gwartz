@@ -5,6 +5,7 @@
  */
 package HogIT;
 
+import HogIT.attPusha.Poang;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -167,7 +168,7 @@ public class Larare extends javax.swing.JFrame {
     private void startaAndraLosenordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startaAndraLosenordActionPerformed
      
         try {
-            new AndraLosenord().setVisible(true);
+            new ÄndraLosenord().setVisible(true);
         } catch (InfException ex) {
             Logger.getLogger(Larare.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -212,7 +213,7 @@ public class Larare extends javax.swing.JFrame {
 
     private void SokPrefektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPrefektActionPerformed
         try {
-            new SokPrefekt().setVisible(true);
+            new SökPrefekt().setVisible(true);
         } catch (InfException ex) {
             Logger.getLogger(Larare.class.getName()).log(Level.SEVERE, null, ex);
         }

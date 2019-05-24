@@ -21,6 +21,7 @@ import oru.inf.InfException;
  */
 public class ÄndraFöreståndare extends javax.swing.JFrame {
     private final InfDB idb;
+    private Validering idCheck;
     /** Creates new form ÄndraFöreståndare
      * @throws oru.inf.InfException */
     public ÄndraFöreståndare() throws InfException {
@@ -133,20 +134,20 @@ public class ÄndraFöreståndare extends javax.swing.JFrame {
       
         try {
            
-        String idf =  idb.fetchSingle("SELECT LARAR_ID FROM LARARE where fornamn=" + "'" + fnamn + "'");
-          
-         String ide =  idb.fetchSingle("SELECT LARAR_ID FROM LARARE where efternamn=" + "'" + enamn + "'");
-         
-         if(idf == null ? ide == null : idf.equals(ide)){
+//        String idf =  idb.fetchSingle("SELECT LARAR_ID FROM LARARE where fornamn=" + "'" + fnamn + "'");
+//          
+//        String ide =  idb.fetchSingle("SELECT LARAR_ID FROM LARARE where efternamn=" + "'" + enamn + "'");
+           
+            String id = idCheck.kollaid(Efternamn, Efternamn);
+
+
+        {
            
         
-            idb.update("UPDATE ELEVHEM SET FORESTANDARE=" + idf + "where ELEVHEMSNAMN=" + "'" + hem + "'");
+            idb.update("UPDATE ELEVHEM SET FORESTANDARE=" + id + "where ELEVHEMSNAMN=" + "'" + hem + "'");
             
              JOptionPane.showMessageDialog(null, hem + "s föreståndare är nu updaterad");
-            
-           
-       
-         } else{JOptionPane.showMessageDialog(null, "Kontrollera inmatningen");}
+            }
         } catch (HeadlessException | NumberFormatException | InfException e) {
                 JOptionPane.showMessageDialog(null, "Något gick fel! Kontrollera inmatningen");
                 System.out.println("Internt felmeddelande" + e.getMessage());

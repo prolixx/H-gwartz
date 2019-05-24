@@ -15,7 +15,7 @@ import oru.inf.InfException;
  *
  * @author Dator
  */
-public class AndraInfoElev extends javax.swing.JFrame {
+public class ÄndraInfoElev extends javax.swing.JFrame {
     private InfDB idb;
     
     
@@ -24,7 +24,7 @@ public class AndraInfoElev extends javax.swing.JFrame {
     /**
      * Creates new form RegNyElev
      */
-    public AndraInfoElev() throws InfException {
+    public ÄndraInfoElev() throws InfException {
         initComponents();
         idb = new InfDB("c:\\db\\hogdb.fdb");
         
@@ -32,9 +32,9 @@ public class AndraInfoElev extends javax.swing.JFrame {
     
         public String getID() throws InfException {
 
-        String namn = elevFornamn.getText();
-        String efternamn = elevEfternamn.getText();
-        String id = idb.fetchSingle("SELECT ELEV_ID FROM ELEV WHERE FORNAMN=" + "'" + namn + "'" + "AND EFTERNAMN =" + "'" + efternamn + "'");
+        String elevFnamn = elevFornamn.getText();
+        String elevEnamn = elevEfternamn.getText();
+        String id = idb.fetchSingle("SELECT ELEV_ID FROM ELEV WHERE FORNAMN=" + "'" + elevFnamn + "'" + "AND EFTERNAMN =" + "'" + elevEnamn + "'");
 
         return id;
 
@@ -202,16 +202,16 @@ public class AndraInfoElev extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void andraKnapp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKnapp1ActionPerformed
-        String namn = andraFornamn.getText();
+        String fnamn = andraFornamn.getText();
 
         try {
-            idb.update("UPDATE elev SET FORNAMN=" + "'" + namn + "'" + "WHERE ELEV_ID=" + "'" + getID() + "'");
+            idb.update("UPDATE elev SET FORNAMN=" + "'" + fnamn + "'" + "WHERE ELEV_ID=" + "'" + getID() + "'");
 
         } catch (InfException ex) {
-            Logger.getLogger(AndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ÄndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
-        
+
+
     }//GEN-LAST:event_andraKnapp1ActionPerformed
 
     private void andraKnapp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraKnapp2ActionPerformed
@@ -220,7 +220,7 @@ public class AndraInfoElev extends javax.swing.JFrame {
         try {
             idb.update("UPDATE elev SET EFTERNAMN=" + "'" + nyttEfternamn + "'" + "WHERE ELEV_ID=" + "'" + getID() + "'");
         } catch (InfException ex) {
-            Logger.getLogger(AndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ÄndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
         }
      
     }//GEN-LAST:event_andraKnapp2ActionPerformed
@@ -231,7 +231,7 @@ public class AndraInfoElev extends javax.swing.JFrame {
         try {
             idb.update("UPDATE elev SET SOVSAL="+"'"+nySovsal+"'"+ "WHERE ELEV_ID="+"'"+getID()+"'");
         } catch (InfException ex) {
-            Logger.getLogger(AndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ÄndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -262,14 +262,18 @@ dispose();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ÄndraInfoElev.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -279,9 +283,9 @@ dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new AndraInfoElev().setVisible(true);
+                    new ÄndraInfoElev().setVisible(true);
                 } catch (InfException ex) {
-                    Logger.getLogger(AndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ÄndraInfoElev.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

@@ -161,7 +161,7 @@ public class Elev extends javax.swing.JFrame {
 
     private void SokPrefektActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPrefektActionPerformed
         try {
-            new SokPrefekt().setVisible(true);
+            new SökPrefekt().setVisible(true);
         } catch (InfException ex) {
             Logger.getLogger(Elev.class.getName()).log(Level.SEVERE, null, ex);
         }

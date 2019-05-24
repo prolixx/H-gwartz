@@ -23,7 +23,7 @@ public class SökKurserElevLäst extends javax.swing.JFrame {
     
     private final InfDB idb;
     /**
-     * Creates new form SökKurserElevLäst
+  
      */
     public SökKurserElevLäst() throws InfException {
         
