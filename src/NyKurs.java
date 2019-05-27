@@ -1,5 +1,3 @@
-package HogIT;
-
 
 
 
@@ -167,7 +165,7 @@ public class NyKurs extends javax.swing.JFrame {
             
            String k = kursnamn.getText();
             
-            String nextID = idb.getAutoIncrement("Kurs","Kurs_id");
+            String nextID = idb.getAutoIncrement("elev","elev_id");
             
            String idf =  idb.fetchSingle("SELECT LARAR_ID FROM LARARE where fornamn=" + "'" + fnamn +"'" + "and efternamn=" + "'" + enamn + "'");
             

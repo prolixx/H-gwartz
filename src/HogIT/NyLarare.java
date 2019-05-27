@@ -22,9 +22,9 @@ public class NyLarare extends javax.swing.JFrame {
     /**
      * Creates new form NyElev
      */
-    public NyLarare() throws InfException {
+    public NyLarare(InfDB idb) throws InfException {
         initComponents();
-        idb = new InfDB("c:\\db\\hogdb.fdb");
+        this.idb = idb;
     }
 
     /**
@@ -114,8 +114,8 @@ public class NyLarare extends javax.swing.JFrame {
             &&  (Validering.textFaltHarVarde(efternamn)) && (Validering.kollatecken(efternamn))){
         
                 try {
-            String namn = fornamn.getText();
-            String eNamn = efternamn.getText();
+            String namn = Validering.storBokstav(fornamn.getText());
+            String eNamn = Validering.storBokstav(efternamn.getText());
             String pass = losenord.getText();
             String nextID = idb.getAutoIncrement("larare", "larar_id");
             idb.insert("insert into larare values" + "(" + "'" + nextID + "'" + "," + "'" + namn + "'" + "," + "'" + eNamn + "'" + "," + "'" + pass + "'" + "," + "'F')");

@@ -77,7 +77,7 @@ public class Validering {
 
     public String kollaid(JTextField rutanAttKolla, JTextField rutanattkolla2) throws InfException {
         boolean ok = true;
-        String resultat = "";
+       String resultat = "";
 
         String id = idb.fetchSingle("SELECT LARAR_ID FROM LARARE where fornamn=" + "'" + rutanAttKolla.getText() + "'" + "and efternamn=" + "'" + rutanattkolla2.getText() + "'");
         if (id == null) {
@@ -89,4 +89,10 @@ public class Validering {
         }
         return resultat;
     }
+    
+    public static String storBokstav(String str) {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
+
+    
 }

@@ -143,7 +143,7 @@ public class Poang extends javax.swing.JFrame {
 
             // Kod för att ge eller ta poäng
         try {      // skickar frågor till FDB
-            String namn = hem.getText();
+            String namn = Validering.storBokstav(hem.getText());
             String svar = idb.fetchSingle("SELECT ELEVHEMSNAMN from ELEVHEM where ELEVHEMSNAMN =" + "'" + namn + "'");
             String hamtad = idb.fetchSingle("SELECT HUSPOANG from ELEVHEM where ELEVHEMSNAMN =" + "'" + namn + "'");
 

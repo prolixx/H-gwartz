@@ -7,6 +7,7 @@ package HogIT;
  */
 
 
+import HogIT.attPusha.ListaEleverpåElevhem;
 import HogIT.attPusha.Poang;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -225,11 +226,7 @@ dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void geAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_geAdminActionPerformed
-        try {
-            new GeAdminStatus().setVisible(true);
-        } catch (InfException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        new GeAdminStatus(idb).setVisible(true);
         
         
         
