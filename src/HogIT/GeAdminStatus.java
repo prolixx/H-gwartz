@@ -26,10 +26,10 @@ public class GeAdminStatus extends javax.swing.JFrame {
     /**
      * Creates new form GeAdminStatus
      */
-    public GeAdminStatus() throws InfException {
+    public GeAdminStatus(InfDB idb){
         initComponents();
         
-        this.idb = new InfDB("c:\\db\\hogdb.fdb");
+        this.idb = idb;
     }
 
     /**

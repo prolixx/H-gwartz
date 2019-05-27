@@ -11,6 +11,7 @@ import HogIT.attPusha.Poang;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -21,16 +22,14 @@ import oru.inf.InfException;
 public class Admin extends javax.swing.JFrame {
  
     private InfDB idb;
-   private ElevhemsPokalen pokalen;
+    private ElevhemsPokalen pokalen;
     /**
     * Creates new form Larare
      */
-    public Admin() {
+    public Admin(InfDB idb) {
         initComponents();
-        try {
-            idb = new InfDB("c:\\db\\hogdb.fdb");
-        } catch (InfException ex) {
-            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex); }
+        this.idb=idb;
+        //idb = new InfDB("c:\\db\\hogdb.fdb");
      }
     
 
@@ -53,6 +52,7 @@ public class Admin extends javax.swing.JFrame {
         listaElever = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         geAdmin = new javax.swing.JButton();
+        VisaStallning = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,12 +74,7 @@ public class Admin extends javax.swing.JFrame {
         resultat.setColumns(20);
         resultat.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         resultat.setRows(5);
-        resultat.setText("Håll musen över!!\n för Ställning i \nElevhemsPokalen!");
-        resultat.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                resultatMouseEntered(evt);
-            }
-        });
+        resultat.setText("\n");
         jScrollPane1.setViewportView(resultat);
 
         visaBetyg.setText("Visa elev betyg");
@@ -119,6 +114,13 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        VisaStallning.setText("Visa Elevhems poäng");
+        VisaStallning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VisaStallningActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,8 +131,13 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(SokPrefekt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(listaElever, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(larareKurser, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(VisaStallning, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(startaAndraLosenord, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -158,7 +165,9 @@ public class Admin extends javax.swing.JFrame {
                         .addComponent(geAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(VisaStallning)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -221,17 +230,55 @@ dispose();
         } catch (InfException ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        
+   
     }//GEN-LAST:event_geAdminActionPerformed
 
-    private void resultatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultatMouseEntered
-//        pokalen.visaStallning();
-//        
-//        resultat.setText();
+    private void VisaStallningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisaStallningActionPerformed
+        try {
+            ArrayList<String> hem = idb.fetchColumn("SELECT ELEVHEMSNAMN from ELEVHEM");
+            ArrayList<String> poäng = idb.fetchColumn("SELECT HUSPOANG from ELEVHEM");
+       
+         String visa = pokalen.visaStallning(hem, poäng).toString();
+         if(visa == null){
+             JOptionPane.showMessageDialog(null, "ingen data");}
+             else{
+         
+          resultat.setText(visa);}
+        } catch (InfException ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }//GEN-LAST:event_VisaStallningActionPerformed
+
+    
+
+
+//   public ArrayList<String>getStallning()
+//   {
+//        ArrayList result = new ArrayList<String>();
 //       
-    }//GEN-LAST:event_resultatMouseEntered
-   
+//        try {
+//            ArrayList<String> hem = idb.fetchColumn("SELECT ELEVHEMSNAMN from ELEVHEM");
+//            ArrayList<String> poäng = idb.fetchColumn("SELECT HUSPOANG from ELEVHEM");
+//            
+//             pokalen.visaStallning(hem, poäng);
+//            
+//        } 
+//        
+//        catch (InfException ex) {
+//            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//       
+//        return result;
+//        
+//   }
+//    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton SokPrefekt;
+    private javax.swing.JButton VisaStallning;
     private javax.swing.JButton geAdmin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

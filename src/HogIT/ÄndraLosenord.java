@@ -164,8 +164,7 @@ public class ÄndraLosenord extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Lösenord är nu ändrat!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Fyll i ID och lösenord korrekt!");
-                    
-                }                
+                     }                
                 
             } catch (InfException ex) {
                 Logger.getLogger(Startsida.class.getName()).log(Level.SEVERE, null, ex);

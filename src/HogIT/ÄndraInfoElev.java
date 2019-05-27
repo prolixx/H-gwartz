@@ -34,7 +34,8 @@ public class ÄndraInfoElev extends javax.swing.JFrame {
 
         String elevFnamn = elevFornamn.getText();
         String elevEnamn = elevEfternamn.getText();
-        String id = idb.fetchSingle("SELECT ELEV_ID FROM ELEV WHERE FORNAMN=" + "'" + elevFnamn + "'" + "AND EFTERNAMN =" + "'" + elevEnamn + "'");
+        String id = idb.fetchSingle("SELECT ELEV_ID FROM ELEV WHERE FORNAMN=" + "'" + elevFnamn + "'" 
+                + "AND EFTERNAMN =" + "'" + elevEnamn + "'");
 
         return id;
 
@@ -140,8 +141,9 @@ public class ÄndraInfoElev extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addComponent(jLabel1)
-                                .addGap(30, 30, 30)
+                                .addGap(18, 18, 18)
                                 .addComponent(andraFornamn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
@@ -149,7 +151,8 @@ public class ÄndraInfoElev extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(andraKnapp1)
-                            .addComponent(andraKnapp2)))
+                            .addComponent(andraKnapp2)
+                            .addComponent(andraKnapp3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,9 +163,7 @@ public class ÄndraInfoElev extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(andraSovsal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20)
-                        .addComponent(andraKnapp3))
+                                .addComponent(andraSovsal, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(127, 127, 127))
         );

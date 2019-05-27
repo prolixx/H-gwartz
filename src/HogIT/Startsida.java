@@ -133,12 +133,13 @@ public class Startsida extends javax.swing.JFrame {
            if (user.getText().equals(fraga3) && password.getText().equals(fraga2))
               
              {
-                  new Admin().setVisible(true);}
+                  new Admin(idb).setVisible(true);
+             dispose();}
                
             else if  (user.getText().equals(fraga) && password.getText().equals(fraga2)){
                           
-              new Larare().setVisible(true);   
-                
+              new Larare(idb).setVisible(true);   
+                dispose();
             }
             else {
                   JOptionPane.showMessageDialog(null, "Fyll i ID och lösenord korrekt!");

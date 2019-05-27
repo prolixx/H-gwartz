@@ -12,6 +12,8 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +26,7 @@ public class SökLararesKurser extends javax.swing.JFrame {
     public SökLararesKurser() throws InfException {
         initComponents();
         idb = new InfDB("c:\\db\\hogdb.fdb");
+        
     }
 
     /**
@@ -37,8 +40,6 @@ public class SökLararesKurser extends javax.swing.JFrame {
 
         fDatum = new com.toedter.calendar.JDateChooser();
         tDatum = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         efternamn = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultat = new javax.swing.JTextArea();
@@ -46,12 +47,15 @@ public class SökLararesKurser extends javax.swing.JFrame {
         sok = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFont(new java.awt.Font("Agency FB", 0, 14)); // NOI18N
 
-        jLabel1.setText("jLabel1");
+        fDatum.setDateFormatString("yyyy-MM-dd");
 
-        jLabel2.setText("jLabel2");
+        tDatum.setDateFormatString("yyyy-MM-dd");
 
         resultat.setColumns(20);
         resultat.setRows(5);
@@ -64,102 +68,119 @@ public class SökLararesKurser extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Lärare Efternamn");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Larare Förnamn");
+
+        jLabel1.setText("Från");
+
+        jLabel2.setText("Till");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(117, Short.MAX_VALUE)
+                        .addComponent(sok)
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(efternamn, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                    .addComponent(fornamn)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(fDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sok)
-                            .addComponent(tDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(206, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(efternamn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fornamn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fornamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel4)
+                    .addComponent(fornamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(efternamn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel1)
+                    .addComponent(fDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(tDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(sok))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(sok)
+                        .addGap(64, 64, 64))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void sokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokActionPerformed
-          if(Validering.textFaltHarVarde(fornamn) && (Validering.textFaltHarVarde(efternamn))){
-        try {
-            // skapa variabler
+        if (Validering.textFaltHarVarde(fornamn) && (Validering.textFaltHarVarde(efternamn))) {
+            // Skapar 
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            String fran = sdf.format(fDatum.getDate());
+            String till = sdf2.format(tDatum.getDate());
             String fnamn = fornamn.getText();
             String enamn = efternamn.getText();
-            String fran = fDatum.getDateFormatString();
-            String till = tDatum.getDateFormatString();
-            // hitta id efter fornamn och efternamn för att förenkla parameter och querys.
+            try {
+                // skapa variabler
 
-            
-            String id = idb.fetchSingle("select larar_id from larare where fornamn=" + "'" + fnamn + "'" + "and efternamn=" + "'" + enamn + "'");
-                    
-            ArrayList<String> datumen = idb.fetchColumn("SELECT  KURSNAMN from KURS where KURSLARARE=" + "'" + id + "'" + "and   KURSSTART   >=" + "'" + fran + "'" + "and Kursslut <=" + "'" + till + "'");
+                String lid = idb.fetchSingle("select larar_id from larare where fornamn=" + "'" + fnamn + "'"
+                        + "and efternamn=" + "'" + enamn + "'");
+                if (lid == null) {
+                    JOptionPane.showMessageDialog(null, "Kunde inte hitta lärare");
+                } else {
 
-            String svar = "";
-                
-            
-            for (String s : datumen) {
-                svar += s + "\t";
-            
-                resultat.setText(svar);
+                    ArrayList<String> datumen = idb.fetchColumn("SELECT  KURSNAMN from KURS where KURSLARARE="
+                            + "'" + lid + "'" + "and"
+                            + " KURSSTART   >=" + "'" + fran + "'" + "and Kursslut <=" + "'" + till + "'");
+                    if (datumen == null) {
+                        JOptionPane.showMessageDialog(null, "Kunde inte finna kurser innom tidsramen!");
+                    } else {
+                        String svar = "";
+
+                        for (String s : datumen) {
+                            svar += s + "\t";
+                        }
+
+                        resultat.setText(svar);
+
+                    }
+                }
             }
+             catch (InfException ex) {
+                Logger.getLogger(SökLararesKurser.class.getName()).log(Level.SEVERE, null, ex);
 
-        } catch (InfException ex) {
-            Logger.getLogger(SökLararesKurser.class.getName()).log(Level.SEVERE, null, ex);
-  
-        }
+            }
         }
     }//GEN-LAST:event_sokActionPerformed
 

@@ -23,29 +23,23 @@ public ElevhemsPokalen() throws InfException
 {
 idb = new InfDB("c:\\db\\hogdb.fdb");}
 
-public void visaStallning(String input)
-{
-        try {
-            ArrayList <String> hem = idb.fetchColumn("SELECT ELEVHEMSNAMN from ELEVHEM");
-           
-            ArrayList <String> poäng = idb.fetchColumn("SELECT HUSPOANG from ELEVHEM");
-            
-             String svar ="";
-            
-            for ( int i = 0; i<hem.size();i++)
-          { 
-            svar +=   hem.get(i)+ " " + poäng.get(i) + "\n";
-           
-            
-           
-          }
-            
-        } catch (InfException ex) {
-            Logger.getLogger(StallningElevhemsPokalen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }     
+    public ArrayList<String> visaStallning(ArrayList<String> Hus, ArrayList<String> Poäng) {
+        
 
-}
+            ArrayList<String> stallningLista = new ArrayList<String>();
+            String stallning = "";
+            
+            for (int i = 0; i < Hus.size(); i++) {
+                stallning += Hus.get(i) + " " + Poäng.get(i) + "\n";
+                stallningLista.add(stallning);
+            }
+             return stallningLista;
+               
+        
+        }
+        
+         
+    }
 
 
 
