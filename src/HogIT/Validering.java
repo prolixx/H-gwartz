@@ -7,6 +7,7 @@ package HogIT;
  */
 
 
+import com.toedter.calendar.JDateChooser;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -94,5 +95,4 @@ public class Validering {
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
-    
 }

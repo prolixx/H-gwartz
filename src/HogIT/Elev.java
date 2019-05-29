@@ -5,7 +5,7 @@
  */
 package HogIT;
 
-import HogIT.attPusha.ListaEleverpåElevhem;
+import HogIT.färdig.ListaEleverpåElevhem;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;

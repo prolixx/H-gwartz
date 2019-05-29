@@ -1,4 +1,4 @@
-package HogIT;
+package HogIT.färdig;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -7,6 +7,7 @@ package HogIT;
  */
 
 
+import HogIT.Validering;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.logging.Level;

@@ -115,29 +115,22 @@ public class SökPrefekt extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        if(Validering.textFaltHarVarde(Hem)){
-        try {
-            String hem = Hem.getText();
-            
-            
-            String id = idb.fetchSingle("SELECT PREFEKT FROM ELEVHEM\n" +
-                    "join ELEV \n" +
-                    "on ELEV_ID = PREFEKT\n" +
-                    "Where ELEVHEMSNAMN = " + "'" + hem + "'");
-         
-         
-          
-            
-            
-            String fornamn = idb.fetchSingle(" SELECT FORNAMN from ELEV where ELEV_ID = " + "'" + id + "'");
-            
-          
-            
-            Resultat.setText(fornamn);
-            
-        } catch (InfException ex) {
-            Logger.getLogger(SökPrefekt.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        if (Validering.textFaltHarVarde(Hem)) {
+            try {
+                String hem = Hem.getText();
+
+                String id = idb.fetchSingle("SELECT PREFEKT FROM ELEVHEM\n"
+                        + "join ELEV \n"
+                        + "on ELEV_ID = PREFEKT\n"
+                        + "Where ELEVHEMSNAMN = " + "'" + hem + "'");
+
+                String fornamn = idb.fetchSingle(" SELECT FORNAMN from ELEV where ELEV_ID = " + "'" + id + "'");
+
+                Resultat.setText(fornamn);
+
+            } catch (InfException ex) {
+                Logger.getLogger(SökPrefekt.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

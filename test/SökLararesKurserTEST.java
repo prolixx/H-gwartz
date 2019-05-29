@@ -1,10 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *Tar fram kurser en lärare haft mellan två datum.
  */
-package HogIT;
 
+
+import HogIT.Validering;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,11 +20,11 @@ import javax.swing.JOptionPane;
  *
  * @author Gabriel
  */
-public class SökLararesKurser extends javax.swing.JFrame {
+public class SökLararesKurserTEST extends javax.swing.JFrame {
 
         private final InfDB idb;
         
-    public SökLararesKurser() throws InfException {
+    public SökLararesKurserTEST() throws InfException {
         initComponents();
         idb = new InfDB("c:\\db\\hogdb.fdb");
         
@@ -143,44 +144,57 @@ public class SökLararesKurser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sokActionPerformed
-        if (Validering.textFaltHarVarde(fornamn) && (Validering.textFaltHarVarde(efternamn))) {
-            // Skapar 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-            String fran = sdf.format(fDatum.getDate());
-            String till = sdf2.format(tDatum.getDate());
-            String fnamn = fornamn.getText();
-            String enamn = efternamn.getText();
-            try {
-                // skapa variabler
+        if (Validering.textNamnHarVarde(fornamn, efternamn)) {
 
-                String lid = idb.fetchSingle("select larar_id from larare where fornamn=" + "'" + fnamn + "'"
-                        + "and efternamn=" + "'" + enamn + "'");
-                if (lid == null) {
-                    JOptionPane.showMessageDialog(null, "Kunde inte hitta lärare");
+            try {
+                SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String fran = sdf1.format(fDatum.getDate());
+                String till = sdf2.format(tDatum.getDate());
+
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+                Date date1 = format.parse(fran);
+                Date date2 = format.parse(till);
+
+                if (date1.after(date2)) {
+                    JOptionPane.showMessageDialog(null, "HELLOOOOOWWWW WORLD");
                 } else {
 
-                    ArrayList<String> datumen = idb.fetchColumn("SELECT  KURSNAMN from KURS where KURSLARARE="
-                            + "'" + lid + "'" + "and"
-                            + " KURSSTART   >=" + "'" + fran + "'" + "and Kursslut <=" + "'" + till + "'");
-                    if (datumen == null) {
-                        JOptionPane.showMessageDialog(null, "Kunde inte finna kurser innom tidsramen!");
-                    } else {
-                        String svar = "";
+                    String fnamn = Validering.storBokstav(fornamn.getText());
+                    String enamn = Validering.storBokstav(efternamn.getText());
+                    try {
 
-                        for (String s : datumen) {
-                            svar += s + "\t";
+                        String lid = idb.fetchSingle("select larar_id from larare where fornamn=" + "'" + fnamn + "'"
+                                + "and efternamn=" + "'" + enamn + "'");
+                        if (lid == null) {
+                            JOptionPane.showMessageDialog(null, "Kunde inte hitta lärare");
+                        } else {
+
+                            ArrayList<String> datumen = idb.fetchColumn("SELECT  KURSNAMN from KURS where KURSLARARE="
+                                    + "'" + lid + "'" + "and"
+                                    + " KURSSTART   >=" + "'" + fran + "'" + "and Kursslut <=" + "'" + till + "'");
+                            if (datumen == null) {
+                                JOptionPane.showMessageDialog(null, "Kunde inte finna kurser innom tidsramen!");
+                            } else {
+                                String svar = "";
+
+                                for (String s : datumen) {
+                                    svar += s + "\t";
+                                }
+
+                                resultat.setText(svar);
+                            }
                         }
-
-                        resultat.setText(svar);
+                    } catch (InfException ex) {
+                        Logger.getLogger(SökLararesKurserTEST.class.getName()).log(Level.SEVERE, null, ex);
 
                     }
                 }
+            } catch (ParseException ex) {
+                Logger.getLogger(SökLararesKurserTEST.class.getName()).log(Level.SEVERE, null, ex);
             }
-             catch (InfException ex) {
-                Logger.getLogger(SökLararesKurser.class.getName()).log(Level.SEVERE, null, ex);
 
-            }
         }
     }//GEN-LAST:event_sokActionPerformed
 
@@ -201,14 +215,16 @@ public class SökLararesKurser extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SökLararesKurser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökLararesKurserTEST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SökLararesKurser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökLararesKurserTEST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SökLararesKurser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökLararesKurserTEST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SökLararesKurser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SökLararesKurserTEST.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -216,9 +232,9 @@ public class SökLararesKurser extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new SökLararesKurser().setVisible(true);
+                    new SökLararesKurserTEST().setVisible(true);
                 } catch (InfException ex) {
-                    Logger.getLogger(SökLararesKurser.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(SökLararesKurserTEST.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

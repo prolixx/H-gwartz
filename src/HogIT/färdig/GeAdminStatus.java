@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package HogIT;
+package HogIT.färdig;
 
 import java.awt.HeadlessException;
 import java.util.ArrayList;
@@ -105,33 +105,34 @@ public class GeAdminStatus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+   
         try {
             String id = ID.getText();
             String setToAdmin = "'T'";
             String namn = idb.fetchSingle("Select Fornamn from Larare where larar_id=" + id);
             String efternamn = idb.fetchSingle("Select efternamn from larare where larar_id=" + id);
-              ArrayList <String> b = idb.fetchColumn("SELECT LARAR_ID from LARARE");
-              {
-              boolean ok = false;
-             
-              
+            ArrayList<String> b = idb.fetchColumn("SELECT LARAR_ID from LARARE");
+            {
+                boolean ok = false;
+
                 for (String b1 : b) {
-                    if(b.contains(id)) ok = true;}
-                    
-                 if(ok = false){
-                    JOptionPane.showMessageDialog(null, " Lärar ID finns ej");}
-                
-              }
+                    if (b.contains(id)) {
+                        ok = true;
+                    }
+                }
+
+                if (ok = false) {
+                    JOptionPane.showMessageDialog(null, " Lärar ID finns ej");
+                }
+
+            }
               
             
             String a = idb.fetchSingle("SELECT ADMINISTRATOR from LARARE where LARAR_ID=" + id);
-            
-            if(a.startsWith("T")){ JOptionPane.showMessageDialog(null, " Läraren är redan administratör");
-            }
-            
-            else
 
+            if (a.startsWith("T")) {
+                JOptionPane.showMessageDialog(null, " Läraren är redan administratör");
+            } else {
                 try {
                     if (JOptionPane.showConfirmDialog(null, "Ge admin till: " + namn + " " + efternamn + " " + id, "Admin",
                             JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
@@ -142,6 +143,7 @@ public class GeAdminStatus extends javax.swing.JFrame {
                 } catch (InfException ex) {
                     Logger.getLogger(GeAdminStatus.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }
         } catch (HeadlessException | NumberFormatException | InfException ex) {
             JOptionPane.showMessageDialog(null, " Något gick fel");
             Logger.getLogger(GeAdminStatus.class.getName()).log(Level.SEVERE, null, ex);

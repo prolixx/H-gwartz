@@ -2,7 +2,7 @@
  * Skapar listor efter elevhem
 
  */
-package HogIT.attPusha;
+package HogIT.färdig;
 
 import HogIT.Validering;
 import java.sql.ResultSet;
@@ -129,44 +129,41 @@ public class ListaEleverpåElevhem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GenomförActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenomförActionPerformed
-        
+
         // hämtar namn från text ruta och uppercase metod från Validering.
         String hem = Validering.storBokstav(Elevhem.getText());
-      try {
-          ArrayList <String> fornamn = idb.fetchColumn("SELECT FORNAMN from ELEV\n" +
-"join SOVSAL\n" +
-"on ELEV.SOVSAL = SOVSAL_ID\n" +
-"Join ELEVHEM\n" +
-"on ELEVHEM_ID = SOVSAL.ELEVHEM\n" +
-"WHERE ELEVHEMSNAMN =" + "'" + hem + "'");
-       
-           
-         ArrayList <String> efternamn = idb.fetchColumn("SELECT EFTERNAMN from ELEV\n" +
-"join SOVSAL\n" +
-"on ELEV.SOVSAL = SOVSAL_ID\n" +
-"Join ELEVHEM\n" +
-"on ELEVHEM_ID = SOVSAL.ELEVHEM\n" +
-"WHERE ELEVHEMSNAMN =" + "'" + hem + "'");
-         //IF sats för att kolla så att vi får tillbaka ett värde.
-         if(fornamn== null && efternamn == null) {
-         JOptionPane.showMessageDialog(null, "Inga elever hittades efter det angivna elevhemmet");
-         }
-         else{
-           String svar ="";
-           //våran loop för att koppala ihopp listan med elever efter elevhem.
-          for ( int i = 0; i<fornamn.size();i++)
-          { 
-            svar +=   fornamn.get(i)+ " " + efternamn.get(i) + "\n";
-          }
-           
-           //visar svaret i en textfield area.
-          Resultat.setText(svar);
-         
-         }
-      } catch (InfException ex) {
-          Logger.getLogger(ListaEleverpåElevhem.class.getName()).log(Level.SEVERE, null, ex);
-      }
-        
+        try {
+            ArrayList<String> fornamn = idb.fetchColumn("SELECT FORNAMN from ELEV\n"
+                    + "join SOVSAL\n"
+                    + "on ELEV.SOVSAL = SOVSAL_ID\n"
+                    + "Join ELEVHEM\n"
+                    + "on ELEVHEM_ID = SOVSAL.ELEVHEM\n"
+                    + "WHERE ELEVHEMSNAMN =" + "'" + hem + "'");
+
+            ArrayList<String> efternamn = idb.fetchColumn("SELECT EFTERNAMN from ELEV\n"
+                    + "join SOVSAL\n"
+                    + "on ELEV.SOVSAL = SOVSAL_ID\n"
+                    + "Join ELEVHEM\n"
+                    + "on ELEVHEM_ID = SOVSAL.ELEVHEM\n"
+                    + "WHERE ELEVHEMSNAMN =" + "'" + hem + "'");
+            //IF sats för att kolla så att vi får tillbaka ett värde.
+            if (fornamn == null && efternamn == null) {
+                JOptionPane.showMessageDialog(null, "Inga elever hittades efter det angivna elevhemmet");
+            } else {
+                String svar = "";
+                
+                for (int i = 0; i < fornamn.size(); i++) {
+                    svar += fornamn.get(i) + " " + efternamn.get(i) + "\n";
+                }
+
+                //visar svaret i en textfield area.
+                Resultat.setText(svar);
+
+            }
+        } catch (InfException ex) {
+            Logger.getLogger(ListaEleverpåElevhem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         
        
     }//GEN-LAST:event_GenomförActionPerformed
